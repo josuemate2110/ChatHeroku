@@ -1,0 +1,56 @@
+function entersavename(event) {
+// Number 13 is the "Enter" key on the keyboard
+if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("identi").click();
+  }
+}
+
+function entersendtext(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        enviarMensaje();
+      }
+    }
+
+$(document).ready(function () {
+    $('#myModal').modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: true
+    });
+
+});
+
+function guardarName(param) {
+    nombre = param;
+    socket.emit("login", {"name":nombre, "socketid":socket.id});
+}
+
+const socket = io.connect();
+
+function enviarMensaje() {
+    msm = $("#mensaje_a_enviar").val();
+    socket.emit("enviarMensaje", {"name":nombre, "messaje":msm});
+    $("#mensaje_a_enviar").val("");
+}
+
+
+
+socket.on("forAllMensaje", (data) => {
+    $("#cajademensajes").append(`<div class="media msg ">
+    <a class="pull-left" href="#">
+        <img class="media-object"  alt="64x64"
+            style="width: 32px; height: 32px;"
+            src="https://img.icons8.com/pastel-glyph/64/000000/person-male.png">
+    </a>
+    <div class="media-body">
+        <h5 class="media-heading">`+ data.name + `</h5>
+        <small class="col-lg-10">`+ data.messaje + `</small>
+    </div>
+</div>`);
+});

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Chat shidori</title>
+</head>
+
+<body style="background-image: url('https://wi.wallpapertip.com/wsimgs/84-842520_whatsapp-default-wallpaper-black.jpg')">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Ingrese su name</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="nombre" class="form-control" onkeyup="entersavename(event)">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="identi" class="btn btn-primary" data-dismiss="modal" onclick="guardarName($('#nombre').val())">Save changes</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="conversation-wrap col-lg-3">
+
+                <!--<div class="media conversation">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" data-src="holder.js/64x64" alt="64x64"
+                            style="width: 50px; height: 50px;"
+                            src="https://img.icons8.com/pastel-glyph/64/000000/person-male.png">
+                    </a>
+                    <div class="media-body">
+                        <h5 class="media-heading">Naimish Sakhpara</h5>
+                        <small>Hello</small>
+                    </div>
+                </div>-->
+
+            </div>
+
+
+            <h2 style="color: white">Bienvenido al chat de Distribuidas</h2>
+            <h5 style="color: white">Este chat es de uso interno exclusivo para alumnos</h5>
+            <div class="message-wrap col-lg-8">
+                <div class="msg-wrap" id="cajademensajes" style="margin-top:10px; background-image: url('https://descubrecomohacerlo.com/wp-content/uploads/2020/12/fondo-predeterminado-whatsapp.jpg')">
+
+                   <!-- <div class="media msg ">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" alt="64x64" style="width: 32px; height: 32px;"
+                                src="https://img.icons8.com/pastel-glyph/64/000000/person-male.png">
+                        </a>
+                        <div class="media-body">
+                            <h5 class="media-heading">Nombre</h5>
+                            <small class="col-lg-10">texto</small>
+                        </div>
+                    </div>-->
+
+                </div>
+
+                <div class="send-wrap ">
+
+                    <textarea class="form-control send-message" rows="3" id="mensaje_a_enviar" onkeyup="entersendtext(event)"
+                        placeholder="Escribe en el chat..."></textarea>
+
+
+                </div>
+                <div class="btn-panel">
+
+                    <a onclick="enviarMensaje()" class=" col-lg-4 text-right btn   send-message-btn pull-right"
+                        role="button"><i class="fa fa-plus"></i> Enviar mensaje</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
