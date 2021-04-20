@@ -143,3 +143,19 @@ body::-webkit-scrollbar {
 ::-webkit-scrollbar-thumb:window-inactive {
     background: #ddd; 
 }
+
+.message {
+    font-size: 18px;
+    font-weight:500;
+    border: 2px solid #dedede;
+    background-color: #55e4a8;
+    color:rgb(0, 0, 0);
+    border-radius: 12px;
+    padding: 10px;
+    margin: 10px 0;
+ }
+ .darker {
+    border-color: #ccc;
+    background-color: rgb(192, 21, 112);
+    color:white;
+ }

@@ -1,3 +1,5 @@
+var nombre_local = "";
+
 function entersavename(event) {
 // Number 13 is the "Enter" key on the keyboard
 if (event.keyCode === 13) {
@@ -28,6 +30,7 @@ $(document).ready(function () {
 
 function guardarName(param) {
     nombre = param;
+    nombre_local = nombre;
     socket.emit("login", {"name":nombre, "socketid":socket.id});
 }
 
@@ -42,7 +45,13 @@ function enviarMensaje() {
 
 
 socket.on("forAllMensaje", (data) => {
-    $("#cajademensajes").append(`<div class="media msg ">
+    console.log(data);
+    var clase = "message";
+    if (data.name == nombre_local) {
+        clase = "message darker";
+    }
+
+    $("#cajademensajes").append(`<div class=" `+ clase + ` media msg ">
     <a class="pull-left" href="#">
         <img class="media-object"  alt="64x64"
             style="width: 32px; height: 32px;"

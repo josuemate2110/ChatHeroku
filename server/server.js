@@ -14,13 +14,13 @@ users = [];
 io.on("connection", (socket) => {
     console.log(socket.id);
 
-    socket.on("enviarMensaje", (data)=>{
+    socket.on("enviarMensaje", (data)=>{//aqui recibe el mensaje y quien lo envia
         console.log(data);
         
-        io.emit("forAllMensaje", data);
+        io.emit("forAllMensaje", data);//aqui envia a todos el mensaje y quien lo envio
     });
     
-    socket.on("login", (data)=>{
+    socket.on("login", (data)=>{//aqui se registra el nombre del cliente
         users.push({"name":data.name, "socketid":data.socketid});
     })
 
