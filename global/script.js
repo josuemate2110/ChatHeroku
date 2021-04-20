@@ -1,19 +1,16 @@
 var nombre_local = "";
 
 function entersavename(event) {
-// Number 13 is the "Enter" key on the keyboard
+// Numero 13 es la tecla "Enter" del teclado
 if (event.keyCode === 13) {
-    // Cancel the default action, if needed
     event.preventDefault();
-    // Trigger the button element with a click
     document.getElementById("identi").click();
   }
 }
 
 function entersendtext(event) {
-    // Number 13 is the "Enter" key on the keyboard
+// Numero 13 es la tecla "Enter" del teclado
     if (event.keyCode === 13) {
-        // Cancel the default action, if needed
         event.preventDefault();
         enviarMensaje();
       }

@@ -1,5 +1,5 @@
 //configuracion del servidor
-const express = require("express");//es como importar
+const express = require("express");//es como importar librerias
 const app = express();
 const servidor= require("http").createServer(app);
 servidor.listen(process.env.PORT || 3000);//aqui se elige el puerto
@@ -9,7 +9,7 @@ const io = socketio.listen(servidor);
 
 app.use(express.static("global"));
 
-users = [];
+users = [];//aqui se crea un array para los clientes
 
 io.on("connection", (socket) => {
     console.log(socket.id);
@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
     });
     
     socket.on("login", (data)=>{//aqui se registra el nombre del cliente
-        users.push({"name":data.name, "socketid":data.socketid});
+        users.push({"name":data.name, "socketid":data.socketid});//aqui se guarda el nombre del cliente
     })
 
 })//("nombre del evento", function (data){}})

@@ -159,3 +159,10 @@ body::-webkit-scrollbar {
     background-color: rgb(192, 21, 112);
     color:white;
  }
+ body {
+    background-image: url('https://wi.wallpapertip.com/wsimgs/84-842520_whatsapp-default-wallpaper-black.jpg');
+ }
+ #cajademensajes {
+    margin-top:10px;
+    background-image: url('https://descubrecomohacerlo.com/wp-content/uploads/2020/12/fondo-predeterminado-whatsapp.jpg');
+ }
